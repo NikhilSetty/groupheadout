@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">grouphead</string>
+    <string name="app_name">SecureKey</string>
+    <string name="simple_ime">Simple IME</string>
+    <string name="subtype_en_US">English (US)</string>
+    <string name="title_activity_main">MainActivity</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_splash">SplashActivity</string>
 </resources>

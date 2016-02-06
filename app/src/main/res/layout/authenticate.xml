@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:height="40dp"
+        android:hint="Password"
+        android:id="@+id/editTextPassword"
+        android:background="@drawable/rounded_edit_text"
+        android:layout_gravity="center_horizontal" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/grid_gradient"
+        android:layout_gravity="center"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <Button android:text="1" android:id="@+id/click_1" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"
+            android:textSize="20dp" />
+
+        <Button android:text="2" android:id="@+id/click_2" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"
+            android:textSize="20dp" />
+
+        <Button android:text="3" android:id="@+id/click_3" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"
+            android:textSize="20dp" />
+
+        <Button android:text="4" android:id="@+id/click_4" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"
+            android:textSize="20dp" />
+
+        <Button android:text="5" android:id="@+id/click_5" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"
+            android:textSize="20dp" />
+
+        <Button android:text="6" android:id="@+id/click_6" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"
+            android:textSize="20dp" />
+
+        <Button android:text="7" android:id="@+id/click_7" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"
+            android:textSize="20dp" />
+
+        <Button android:text="8" android:id="@+id/click_8" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"
+            android:textSize="20dp" />
+
+        <Button android:text="9" android:id="@+id/click_9" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"
+            android:textSize="20dp" />
+
+        <Button android:text="Del" android:id="@+id/click_del" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"/>
+
+        <Button android:text="0" android:id="@+id/click_0" android:textColor="#FFF"
+            android:background="@drawable/button_transparent_white"
+            android:textSize="20dp" />
+
+    </GridLayout>
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/vault_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="4dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/icon_vault"
+      />
+
+    <TextView
+        android:text="Valut Name"
+        android:id="@+id/vault_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_weight="2.0"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="80dp"
+        android:padding="1dp" />
+    <TextView
+        android:text="12"
+        android:id="@+id/vault_kyes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_weight="2.0"
+        android:padding="1dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignTop="@+id/vault_name"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
