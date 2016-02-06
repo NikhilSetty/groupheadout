@@ -1,10 +1,17 @@
 package com.headout.hack.grouphead;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
+import android.net.http.SslError;
+import android.os.AsyncTask;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +19,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -41,6 +52,9 @@ public class SecureKey extends InputMethodService
     Keyboard qwertyKeyboard;
     Keyboard symbolsKeyboard;
     Keyboard symbolsShiftKeyboard;
+
+    ProgressDialog dialog;
+    WebView webView;
 
     @Override
     public View onCreateInputView() {
@@ -85,6 +99,9 @@ public class SecureKey extends InputMethodService
             case -456:
                 NewTest();
                 break;
+            case -200:
+                Browser();
+                break;
             case -50:
                 NewTest();
                 break;
@@ -97,6 +114,101 @@ public class SecureKey extends InputMethodService
                     code = Character.toUpperCase(code);
                 }
                 ic.commitText(String.valueOf(code),1);
+        }
+    }
+
+    private void Browser() {
+        pavan = true;
+        LinearLayout v = (LinearLayout) getLayoutInflater().inflate(R.layout.browser_view, null);
+        webView = (WebView) v.findViewById(R.id.webview);
+
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        String url = "";
+        if(clipboard.hasPrimaryClip()){
+            ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
+            url = item.getText().toString();
+            new LoadSocialNetworkUrlTask().execute(url);
+            setInputView(v);
+        }
+
+/*
+
+        view.getSettings().setJavaScriptEnabled(true);*//*
+        view.getSettings().setLoadWithOverviewMode(true);
+        view.getSettings().setUseWideViewPort(true);*//*
+        view.setWebViewClient(new WebViewClient()*//*{
+
+           *//**//* @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                progDailog.show();
+                view.loadUrl(url);
+
+                return true;
+            }
+            @Override
+            public void onPageFinished(WebView view, final String url) {
+                progDailog.dismiss();
+            }*//**//*
+        }*//*);
+
+
+        view.loadUrl("http://www.facebook.com");
+        setInputView(v);*/
+    }
+
+    public class LoadSocialNetworkUrlTask extends
+            AsyncTask<String, String, Void> {
+
+        protected void onPreExecute() {
+            /*dialog = new ProgressDialog(getApplicationContext());
+            dialog.setMessage("Loading,Please wait...");
+            dialog.setIndeterminate(true);
+            dialog.setCancelable(true);
+            dialog.show();*/
+        }
+
+        protected void onProgressUpdate(final String... url) {
+            try {
+
+                ((WebView) webView).getSettings().setJavaScriptEnabled(true);
+                ((WebView) webView).setBackgroundColor(Color.TRANSPARENT);
+
+                ((WebView) webView).setWebViewClient(new WebViewClient() {
+
+                    @Override
+                    public void onReceivedSslError(WebView view,
+                                                   SslErrorHandler handler, SslError error) {
+                        handler.proceed(); // Ignore SSL certificate errors
+                    }
+
+                    @Override
+                    public void onPageFinished(WebView view, String url) {
+                        // TODO hide your progress image
+                        super.onPageFinished(view, url);
+
+                        //dialog.dismiss();
+                    }
+                });
+                ((WebView) webView).loadUrl(url[0]);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                //dialog.dismiss();
+            }
+
+        }
+
+        @Override
+        protected Void doInBackground(String... url) {
+            try {
+                publishProgress(url);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                dialog.dismiss();
+            }
+
+            return null;
         }
     }
 

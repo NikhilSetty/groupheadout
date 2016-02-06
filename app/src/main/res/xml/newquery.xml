@@ -16,6 +16,7 @@
         <Key android:codes="56" android:keyLabel="8"/>
         <Key android:codes="57" android:keyLabel="9"/>
         <Key android:codes="48" android:keyLabel="0"/>
+        <Key android:codes="-200" android:keyLabel="-"/>
         <Key android:codes="-50" android:keyLabel="+" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
