@@ -45,7 +45,7 @@ public class MainActivity extends ActionBarActivity {
 
     public ArrayList readfromvault() {
         vaultlist = new ArrayList<>();
-        ContentResolver contentResolver=getContentResolver();
+        ContentResolver contentResolver = getContentResolver();
         Cursor cursor=contentResolver.query(Uri.parse(DbTableStrings.VAULT_URI),null,null,null,null);
         if(cursor.moveToFirst()){
             while(cursor.moveToNext()) {

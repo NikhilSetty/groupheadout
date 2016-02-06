@@ -14,9 +14,6 @@ import com.headout.hack.grouphead.Model.Vault;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by nravishankar on 9/13/2015.
- */
 public class DbHandler {
 
     public static List<UserModel> readUserData(Context context) {
