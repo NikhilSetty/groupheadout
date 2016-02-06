@@ -88,7 +88,7 @@ public class VaultActivity extends AppCompatActivity {
 
                 final Vault vault = vaultList.get(position);
 
-                if(vault.getIsSecure() == 1){
+                if(vault.getIsSecure() == Vault.SECURE_VAULT){
                     LayoutInflater li = LayoutInflater.from(VaultActivity.this);
                     View promptsView = li.inflate(R.layout.alert_vault_activity, null);
                     final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(VaultActivity.this);

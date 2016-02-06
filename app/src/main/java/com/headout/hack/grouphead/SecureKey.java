@@ -582,6 +582,27 @@ public class SecureKey extends InputMethodService
         alertDialog.show();
     }
 
+    /**
+     * Default implementation of {@link KeyEvent.Callback#onKeyLongPress(int, KeyEvent)
+     * KeyEvent.Callback.onKeyLongPress()}: always returns false (doesn't handle
+     * the event).
+     *
+     * @param keyCode
+     * @param event
+     */
+    @Override
+    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+
+        //M
+        if(keyCode == 109) {
+           Browser();
+        } else if(keyCode == 115) {
+            //s
+            Authenticate();
+        }
+        return false;
+    }
+
     @Override
     public void onPress(int primaryCode) {
     }

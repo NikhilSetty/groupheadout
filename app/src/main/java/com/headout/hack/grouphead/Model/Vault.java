@@ -12,6 +12,8 @@ public class Vault {
     long passcode;
     int isSecure;
 
+    public static final int SECURE_VAULT = 1;
+
     public long getPasscode() {
         return passcode;
     }
