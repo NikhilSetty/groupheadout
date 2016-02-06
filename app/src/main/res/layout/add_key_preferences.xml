@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.internal.widget.ListViewCompat
+        android:layout_width="match_parent"
+        android:id="@+id/apps_list_view"
+        android:layout_height="match_parent"
+        android:dividerHeight="3dp"
+        android:background="@android:color/white">
+    </android.support.v7.internal.widget.ListViewCompat>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:paddingTop="@dimen/abc_action_bar_overflow_padding_end_material"
+        android:paddingBottom="@dimen/abc_action_bar_overflow_padding_end_material"
+        android:weightSum="2"
+        android:id="@+id/first_layout"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/app_key1_image_view"
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:layout_marginStart="@dimen/abc_action_bar_overflow_padding_end_material"
+            android:layout_marginLeft="@dimen/abc_action_bar_overflow_padding_end_material"
+            android:src="@drawable/icon_login"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:id="@+id/app_name1_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="true"
+            android:text="Secure Key"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/keypress1_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="true"
+            android:layout_marginEnd="@dimen/abc_action_bar_overflow_padding_end_material"
+            android:layout_marginRight="@dimen/abc_action_bar_overflow_padding_end_material"
+            android:gravity="center"
+            android:layout_weight="0.7"
+            android:text="S"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:paddingTop="@dimen/abc_action_bar_overflow_padding_end_material"
+        android:paddingBottom="@dimen/abc_action_bar_overflow_padding_end_material"
+        android:weightSum="2"
+        android:layout_gravity="center"
+        android:layout_below="@+id/first_layout"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/app_key2_image_view"
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:layout_marginStart="@dimen/abc_action_bar_overflow_padding_end_material"
+            android:layout_marginLeft="@dimen/abc_action_bar_overflow_padding_end_material"
+            android:src="@drawable/map_pointer_pinkish_red"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:id="@+id/app_name2_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="true"
+            android:text="Browser"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/keypress2_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="true"
+            android:layout_marginEnd="@dimen/abc_action_bar_overflow_padding_end_material"
+            android:layout_marginRight="@dimen/abc_action_bar_overflow_padding_end_material"
+            android:gravity="center"
+            android:layout_weight="0.7"
+            android:text="M"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/message_add_key_pref_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:text="No preferences set!" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/edit_keys_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/pencil_white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/fab_margin_bottom"
+        android:layout_marginRight="@dimen/fab_margin_right" />
+</RelativeLayout>

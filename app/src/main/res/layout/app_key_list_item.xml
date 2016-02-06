@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:paddingTop="@dimen/abc_action_bar_overflow_padding_end_material"
+    android:paddingBottom="@dimen/abc_action_bar_overflow_padding_end_material"
+    android:weightSum="2"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/app_key_image_view"
+        android:layout_width="32dip"
+        android:layout_height="32dip"
+        android:layout_marginStart="@dimen/abc_action_bar_overflow_padding_end_material"
+        android:layout_marginLeft="@dimen/abc_action_bar_overflow_padding_end_material"
+        android:src="@drawable/cross_pinkish_red"
+        android:layout_weight="0.3"/>
+
+    <TextView
+        android:id="@+id/app_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textAllCaps="true"
+        android:text="Not available"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/keypress_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textAllCaps="true"
+        android:layout_marginEnd="@dimen/abc_action_bar_overflow_padding_end_material"
+        android:layout_marginRight="@dimen/abc_action_bar_overflow_padding_end_material"
+        android:gravity="center"
+        android:layout_weight="0.7"
+        android:text="NA"
+        android:textColor="@android:color/black"/>
+</LinearLayout>
