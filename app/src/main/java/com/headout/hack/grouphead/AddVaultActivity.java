@@ -98,7 +98,7 @@ public class AddVaultActivity extends AppCompatActivity {
 
             if (StaticHelper.IsFromSignUp) {
                 new EasyDialog(AddVaultActivity.this)
-                        .setLayoutResourceId(R.layout.layout_tip_content_horizontal)
+                        .setLayoutResourceId(R.layout.layout_tip_content_key_horizontal)
                         .setBackgroundColor(AddVaultActivity.this.getResources().getColor(R.color.background_color_black))
                         .setLocation(location)
                         .setGravity(EasyDialog.GRAVITY_TOP)
