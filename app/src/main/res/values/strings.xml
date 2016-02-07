@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SecureKey</string>
+    <string name="app_name_final">SecureKey</string>
     <string name="simple_ime">Simple IME</string>
     <string name="subtype_en_US">English (US)</string>
     <string name="title_activity_main">MainActivity</string>

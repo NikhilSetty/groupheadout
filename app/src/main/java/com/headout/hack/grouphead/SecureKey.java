@@ -1,5 +1,6 @@
 package com.headout.hack.grouphead;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ClipData;
@@ -10,6 +11,7 @@ import android.graphics.Color;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
+import android.media.Image;
 import android.net.http.SslError;
 import android.os.AsyncTask;
 import android.view.KeyEvent;
@@ -26,9 +28,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.headout.hack.grouphead.Model.KeyValue;
@@ -55,6 +59,8 @@ public class SecureKey extends InputMethodService
 
     ProgressDialog dialog;
     WebView webView;
+    RelativeLayout webLayout;
+    Boolean mWebView = false;
 
     @Override
     public View onCreateInputView() {
@@ -99,8 +105,11 @@ public class SecureKey extends InputMethodService
             case -456:
                 NewTest();
                 break;
-            case -200:
+            case -458:
                 Browser();
+                break;
+            case -459:
+                Reader();
                 break;
             case -50:
                 NewTest();
@@ -117,43 +126,65 @@ public class SecureKey extends InputMethodService
         }
     }
 
+    private void Reader() {
+        RelativeLayout v = (RelativeLayout) getLayoutInflater().inflate(R.layout.file_reader, null);
+        TextView textReader = (TextView) v.findViewById(R.id.textViewBook);
+        textReader.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies felis vel nunc ultrices volutpat. Etiam tincidunt mollis felis, ut facilisis tellus pellentesque blandit. Donec eget nibh vel nulla congue sodales. Quisque vitae molestie sem. Pellentesque rutrum nibh tortor, et sollicitudin sapien tempor ac. Nullam vitae pharetra lectus. Aenean aliquam quam varius euismod semper. Etiam placerat ac dolor eget maximus. Donec quam lacus, maximus ut dictum sit amet, convallis in enim. In tempor elit bibendum est lobortis, vestibulum sollicitudin enim condimentum.\n" +
+                "\n" +
+                "Maecenas tempus augue a posuere dignissim. Praesent ut leo tellus. Cras tincidunt, risus vitae posuere gravida, dui velit pretium mi, vitae pulvinar turpis mauris eu sapien. Etiam luctus augue vel elit commodo ultrices a id eros. Duis faucibus cursus tortor sit amet consequat. Cras id sapien rutrum, aliquam lorem scelerisque, volutpat metus. Mauris sapien tellus, commodo ut fermentum ut, gravida in quam. Donec semper nunc non malesuada rhoncus. Phasellus purus nisl, pulvinar in iaculis et, facilisis et lacus. Vivamus mattis ornare lorem vitae venenatis.\n" +
+                "\n" +
+                "Aliquam a neque nulla. Curabitur a orci quis tellus euismod vestibulum. Vivamus eros eros, dignissim ac sagittis posuere, volutpat in odio. Donec varius tellus at ipsum suscipit, et pellentesque risus eleifend. In lacinia tincidunt neque accumsan pretium. Suspendisse tellus dolor, tristique eu odio in, sodales fermentum orci. Praesent purus elit, varius sed elit in, scelerisque aliquet est. Integer tempus lorem sed metus fermentum, ut bibendum erat sodales. Duis at dui nec lacus ultricies tincidunt. Morbi lacinia eu diam eget sodales. Quisque lacinia tincidunt tortor sed bibendum.\n" +
+                "\n" +
+                "Fusce rutrum in orci ac aliquet. Morbi ac vehicula risus. Aenean erat lectus, interdum eget interdum quis, accumsan eu leo. Praesent pharetra, nunc eget consequat porta, dolor velit viverra nulla, tempus aliquet sem purus id odio. Sed eget ante vel justo varius commodo. Suspendisse porta nibh vitae orci consequat mollis. Sed eget feugiat velit, vitae cursus purus. Vivamus nec egestas neque. Suspendisse feugiat nunc vel suscipit egestas. Sed tortor arcu, euismod eget lorem in, fringilla pulvinar risus.\n" +
+                "\n" +
+                "Nulla facilisi. Aliquam iaculis non felis ut tempor. Duis vehicula facilisis justo, quis efficitur mauris aliquet nec. Aliquam lorem ante, ultrices at varius eget, placerat ac velit. Nulla facilisi. Proin in ultrices nisi. Nunc elementum est quis tortor feugiat euismod. Pellentesque quis fermentum tellus, non gravida nulla. Aenean nec lacus eget dui dignissim dignissim. Vivamus facilisis, nibh maximus porta varius, mi sem mattis enim, vel congue libero nisi et leo. Proin id arcu eu nulla dictum efficitur. Aliquam rutrum quam metus, in porta lorem molestie quis. Praesent eu felis magna. Aliquam euismod nunc a metus convallis fringilla. Duis id sodales felis, a faucibus augue.");
+
+        ImageView backIcon = (ImageView) v.findViewById(R.id.back_icon);
+
+        backIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                kv = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard, null);
+                keyboard = new Keyboard(SecureKey.this, R.xml.qwerty);
+                kv.setKeyboard(keyboard);
+                kv.setOnKeyboardActionListener(SecureKey.this);
+                setInputView(kv);
+            }
+        });
+
+        setInputView(v);
+    }
+
     private void Browser() {
-        pavan = true;
-        LinearLayout v = (LinearLayout) getLayoutInflater().inflate(R.layout.browser_view, null);
-        webView = (WebView) v.findViewById(R.id.webview);
+        mWebView = true;
+        webLayout = (RelativeLayout) getLayoutInflater().inflate(R.layout.browser_view, null);
+        webView = (WebView) webLayout.findViewById(R.id.webview);
+
+        ImageView backIcon = (ImageView) webLayout.findViewById(R.id.back_icon);
+
+        backIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
+                keyboard = new Keyboard(SecureKey.this, R.xml.qwerty);
+                kv.setKeyboard(keyboard);
+                kv.setOnKeyboardActionListener(SecureKey.this);
+                setInputView(kv);
+            }
+        });
 
         ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
         String url = "";
         if(clipboard.hasPrimaryClip()){
             ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
             url = item.getText().toString();
-            new LoadSocialNetworkUrlTask().execute(url);
-            setInputView(v);
-        }
-
-/*
-
-        view.getSettings().setJavaScriptEnabled(true);*//*
-        view.getSettings().setLoadWithOverviewMode(true);
-        view.getSettings().setUseWideViewPort(true);*//*
-        view.setWebViewClient(new WebViewClient()*//*{
-
-           *//**//* @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                progDailog.show();
-                view.loadUrl(url);
-
-                return true;
+            if(url.contains("http")) {
+                new LoadSocialNetworkUrlTask().execute(url);
+                //setInputView(webLayout);
+            }else{
+                Toast.makeText(getApplicationContext(), "Not a valid URL! Try Again!", Toast.LENGTH_SHORT).show();
             }
-            @Override
-            public void onPageFinished(WebView view, final String url) {
-                progDailog.dismiss();
-            }*//**//*
-        }*//*);
-
-
-        view.loadUrl("http://www.facebook.com");
-        setInputView(v);*/
+        }
     }
 
     public class LoadSocialNetworkUrlTask extends
@@ -165,6 +196,10 @@ public class SecureKey extends InputMethodService
             dialog.setIndeterminate(true);
             dialog.setCancelable(true);
             dialog.show();*/
+
+            pavan = true;
+            RelativeLayout v = (RelativeLayout) getLayoutInflater().inflate(R.layout.loading_page, null);
+            setInputView(v);
         }
 
         protected void onProgressUpdate(final String... url) {
@@ -186,6 +221,7 @@ public class SecureKey extends InputMethodService
                         // TODO hide your progress image
                         super.onPageFinished(view, url);
 
+                        setInputView(webLayout);
                         //dialog.dismiss();
                     }
                 });
@@ -539,6 +575,7 @@ public class SecureKey extends InputMethodService
                 }
 
                 Toast.makeText(getApplicationContext(), "You have clicked :" + selectedVault.getName(), Toast.LENGTH_LONG).show();
+                alertDialog.setMessage("Choose the key to Insert!");
                 //String[] vaults = new String[]{"New", "Set", "Of", "Strings"};
 
                 final List<KeyValue> kv = DbHandler.getAllPairs(getApplicationContext());
@@ -582,27 +619,6 @@ public class SecureKey extends InputMethodService
         alertDialog.show();
     }
 
-    /**
-     * Default implementation of {@link KeyEvent.Callback#onKeyLongPress(int, KeyEvent)
-     * KeyEvent.Callback.onKeyLongPress()}: always returns false (doesn't handle
-     * the event).
-     *
-     * @param keyCode
-     * @param event
-     */
-    @Override
-    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
-
-        //M
-        if(keyCode == 109) {
-           Browser();
-        } else if(keyCode == 115) {
-            //s
-            Authenticate();
-        }
-        return false;
-    }
-
     @Override
     public void onPress(int primaryCode) {
     }
@@ -625,9 +641,8 @@ public class SecureKey extends InputMethodService
 
     @Override
     public void swipeRight() {
-        if(pavan){
-            RelativeLayout v = (RelativeLayout) getLayoutInflater().inflate(R.layout.alert_generate_service_request, null);
-            setInputView(v);
+        if(mWebView){
+            setInputView(webLayout);
         }
     }
 

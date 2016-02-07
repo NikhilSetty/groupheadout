@@ -8,11 +8,11 @@
     <shape
         android:innerRadiusRatio="3"
         android:shape="ring"
-        android:thicknessRatio="8.0"
+        android:thicknessRatio="9.0"
         android:useLevel="true">
         <gradient
-            android:centerColor="#FFF"
-            android:endColor="#fff"
+            android:centerColor="#000"
+            android:endColor="#000"
             android:startColor="#FFF"
             android:angle="0"
             android:type="sweep" />
