@@ -16,10 +16,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 
-/**
- * Created by nravishankar on 9/12/2015.
- */
-
 public class EncryptionHelper {
 
     private static String cryptoPass = "sup3rS3xy";

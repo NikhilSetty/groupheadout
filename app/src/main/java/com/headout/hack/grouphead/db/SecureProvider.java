@@ -13,9 +13,6 @@ import android.util.Log;
 
 import java.util.HashMap;
 
-/**
- * Created by pgonagur on 9/12/2015.
- */
 public class SecureProvider extends ContentProvider {
     // fields for my content provider
     static final String AUTHORITY = "com.phoenix.securekey.db.SecureProvider";

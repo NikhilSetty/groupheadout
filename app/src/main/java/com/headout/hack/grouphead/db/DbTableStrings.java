@@ -1,9 +1,5 @@
 package com.headout.hack.grouphead.db;
 
-
-/**
- * Created by pgonagur on 9/12/2015.
- */
 public class DbTableStrings {
     public static final String DATABASE_NAME="secure_provider";
  public static final int DATABASE_VERSION=1;

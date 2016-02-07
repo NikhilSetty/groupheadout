@@ -1,8 +1,5 @@
 package com.headout.hack.grouphead.Model;
 
-/**
- * Created by anujkumars on 9/12/2015.
- */
 public class Vault {
 
     String Name;

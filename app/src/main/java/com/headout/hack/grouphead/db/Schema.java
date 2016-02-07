@@ -1,8 +1,5 @@
 package com.headout.hack.grouphead.db;
 
-/**
- * Created by pgonagur on 9/12/2015.
- */
 public class Schema {
     public static final String CREATE_AUTH_TABLE = "create table if not exists " + DbTableStrings.TABLE_NAME_AUTHENTICATION +
             "( _id integer primary key autoincrement, "

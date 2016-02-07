@@ -20,9 +20,6 @@ import com.headout.hack.grouphead.db.DbHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by anujkumars on 9/12/2015.
- */
 public class KeyValueActivity extends AppCompatActivity {
 
     ArrayAdapter mAdapter;

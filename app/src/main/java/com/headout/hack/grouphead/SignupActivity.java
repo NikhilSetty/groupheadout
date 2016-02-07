@@ -11,9 +11,6 @@ import android.widget.Toast;
 import com.headout.hack.grouphead.Model.UserModel;
 import com.headout.hack.grouphead.db.DbHandler;
 
-/**
- * Created by anujkumars on 9/12/2015.
- */
 public class SignupActivity extends AppCompatActivity {
     Button btnSignUp;
     EditText editTextUserName;
