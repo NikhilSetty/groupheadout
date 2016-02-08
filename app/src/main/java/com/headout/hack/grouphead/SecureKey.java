@@ -42,6 +42,8 @@ import com.headout.hack.grouphead.db.DbHandler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SecureKey extends InputMethodService
         implements KeyboardView.OnKeyboardActionListener {
@@ -165,7 +167,7 @@ public class SecureKey extends InputMethodService
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
+                kv = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard, null);
                 keyboard = new Keyboard(SecureKey.this, R.xml.qwerty);
                 kv.setKeyboard(keyboard);
                 kv.setOnKeyboardActionListener(SecureKey.this);
@@ -174,17 +176,48 @@ public class SecureKey extends InputMethodService
         });
 
         ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        String url = "";
+        List<String> url;
+        String text = "";
         if(clipboard.hasPrimaryClip()){
             ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
-            url = item.getText().toString();
-            if(url.contains("http")) {
-                new LoadSocialNetworkUrlTask().execute(url);
-                //setInputView(webLayout);
-            }else{
+            text = item.getText().toString();
+            url = extractURLs(text);
+            if (url.size() == 0){
                 Toast.makeText(getApplicationContext(), "Not a valid URL! Try Again!", Toast.LENGTH_SHORT).show();
+            }else {
+                new LoadSocialNetworkUrlTask().execute(url.get(0));
             }
+
+//            if(url.contains("http")) {
+//                new LoadSocialNetworkUrlTask().execute(url);
+//                //setInputView(webLayout);
+//            }else{
+//                Toast.makeText(getApplicationContext(), "Not a valid URL! Try Again!", Toast.LENGTH_SHORT).show();
+//            }
         }
+    }
+    public static List<String> extractURLs(String url){
+        List<String> result = new ArrayList<String>();
+
+        Pattern pattern = Pattern.compile(
+                "\\b(((ht|f)tp(s?)\\:\\/\\/|~\\/|\\/)|www.)" +
+                        "(\\w+:\\w+@)?(([-\\w]+\\.)+(com|org|net|gov" +
+                        "|mil|biz|info|mobi|name|aero|jobs|museum" +
+                        "|travel|[a-z]{2}))(:[\\d]{1,5})?" +
+                        "(((\\/([-\\w~!$+|.,=]|%[a-f\\d]{2})+)+|\\/)+|\\?|#)?" +
+                        "((\\?([-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" +
+                        "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)" +
+                        "(&(?:[-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" +
+                        "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)*)*" +
+                        "(#([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)?\\b");
+
+        Matcher matcher = pattern.matcher(url);
+        while (matcher.find()) {
+            result.add(matcher.group());
+        }
+
+        return result;
+
     }
 
     public class LoadSocialNetworkUrlTask extends
