@@ -307,6 +307,12 @@ public class SecureKey extends InputMethodService
             kv.setKeyboard(keyboard);
             kv.setOnKeyboardActionListener(this);
             setInputView(kv);
+        }else{
+            kv = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard, null);
+            keyboard = symbolsKeyboard;
+            kv.setKeyboard(keyboard);
+            kv.setOnKeyboardActionListener(this);
+            setInputView(kv);
         }
     }
 
@@ -420,10 +426,10 @@ public class SecureKey extends InputMethodService
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                                 String enteredPassword = input.getText().toString();
-                                UserModel user = new UserModel();
-                                user.UserName = "";
-                                user.Password = Long.parseLong(input.getText().toString());
-                                if (!enteredPassword.equals("") && user.Password == 1234) {
+                                UserModel model = new UserModel();
+                                model.UserName = "user";
+                                model.Password = Long.parseLong(enteredPassword);
+                                if (DbHandler.authUser(getApplicationContext(), model)) {
                                     Toast.makeText(getApplicationContext(), "Login Successful!", Toast.LENGTH_SHORT).show();
                                     AddKey();
                                 } else {
