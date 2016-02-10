@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.headout.hack.grouphead" >
+    package="com.fartans.keyplus" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <service
-            android:name=".SecureKey"
+            android:name="com.fartans.keyplus.SecureKey"
             android:label="Key+"
             android:permission="android.permission.BIND_INPUT_METHOD" >
             <meta-data
@@ -23,7 +23,7 @@
         </service>
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.fartans.keyplus.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,37 +31,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="com.fartans.keyplus.LoginActivity"
             android:label="@string/app_name_final" >
         </activity>
         <activity
-            android:name=".VaultActivity"
+            android:name="com.fartans.keyplus.VaultActivity"
             android:label="Vault" >
         </activity>
         <activity
-            android:name=".KeyValueActivity"
+            android:name="com.fartans.keyplus.KeyValueActivity"
             android:label="Add Item" >
         </activity>
         <activity
-            android:name=".AddVaultActivity"
+            android:name="com.fartans.keyplus.AddVaultActivity"
             android:label="Add Vault" >
         </activity>
         <activity
-            android:name=".SignupActivity"
+            android:name="com.fartans.keyplus.SignupActivity"
             android:label="SignUp" >
         </activity>
         <activity
-            android:name=".AddKeyValueActivity"
+            android:name="com.fartans.keyplus.AddKeyValueActivity"
             android:label="Add KeyValue" >
         </activity>
 
         <provider
-            android:name=".db.SecureProvider"
+            android:name="com.fartans.keyplus.db.SecureProvider"
             android:authorities="com.phoenix.securekey.db.SecureProvider" >
         </provider>
 
         <activity
-            android:name=".SplashActivity"
+            android:name="com.fartans.keyplus.SplashActivity"
             android:label="Key+" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
