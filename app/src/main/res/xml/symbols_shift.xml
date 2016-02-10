@@ -7,25 +7,25 @@
     >
 
     <Row>
-        <Key android:codes="126" android:keyLabel="" android:keyEdgeFlags="left"/>
-        <Key android:codes="177" android:keyLabel=""/>
-        <Key android:codes="215" android:keyLabel=""/>
-        <Key android:codes="247" android:keyLabel=""/>
-        <Key android:codes="8226" android:keyLabel=""/>
-        <Key android:codes="176" android:keyLabel=""/>
+        <Key android:codes="126" android:keyLabel="~" android:keyEdgeFlags="left"/>
+        <Key android:codes="177" android:keyLabel="&#177;"/>
+        <Key android:codes="215" android:keyLabel="x"/>
+        <Key android:codes="247" android:keyLabel="&#247;"/>
+        <Key android:codes="8226" android:keyLabel="&#8226;"/>
+        <Key android:codes="176" android:keyLabel="&#176;"/>
         <Key android:codes="96" android:keyLabel="`"/>
-        <Key android:codes="180" android:keyLabel=""/>
+        <Key android:codes="180" android:keyLabel="&#180;"/>
         <Key android:codes="123" android:keyLabel="{"/>
         <Key android:codes="125" android:keyLabel="}" android:keyEdgeFlags="right"/>
     </Row>
 
     <Row>
-        <Key android:codes="169" android:keyLabel="" android:keyEdgeFlags="left"/>
-        <Key android:codes="163" android:keyLabel=""/>
+        <Key android:codes="169" android:keyLabel="&#169;" android:keyEdgeFlags="left"/>
+        <Key android:codes="163" android:keyLabel="&#163;"/>
         <Key android:codes="8364" android:keyLabel=""/>
         <Key android:codes="94" android:keyLabel="^"/>
-        <Key android:codes="174" android:keyLabel=""/>
-        <Key android:codes="165" android:keyLabel=""/>
+        <Key android:codes="174" android:keyLabel="&#174;"/>
+        <Key android:codes="165" android:keyLabel="&#165;"/>
         <Key android:codes="95" android:keyLabel="_"/>
         <Key android:codes="43" android:keyLabel="+"/>
         <Key android:codes="91" android:keyLabel="["/>

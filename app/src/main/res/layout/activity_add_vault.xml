@@ -41,7 +41,7 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Set Password"
+                    android:text="Set Pin for the vault"
                     android:id="@+id/set_vault_password" />
 
                 <android.support.design.widget.TextInputLayout
@@ -55,7 +55,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:hint="Password"
+                        android:hint="PIN (0-9)"
                         />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>

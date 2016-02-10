@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme" >
         <service
             android:name=".SecureKey"
-            android:label="@string/app_name"
+            android:label="Key+"
             android:permission="android.permission.BIND_INPUT_METHOD" >
             <meta-data
                 android:name="android.view.im"
@@ -62,7 +62,7 @@
 
         <activity
             android:name=".SplashActivity"
-            android:label="@string/app_name_final" >
+            android:label="Key+" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
