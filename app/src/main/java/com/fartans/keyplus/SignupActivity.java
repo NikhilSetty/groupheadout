@@ -23,6 +23,8 @@ public class SignupActivity extends AppCompatActivity {
 
         StaticHelper.IsFromSignUp = true;
 
+        this.setTitle("Sign Up");
+
         editTextPassword = (EditText)findViewById(R.id.input_password_edittext);
         editTextConfirmPassword = (EditText)findViewById(R.id.input_confirmpassword_edittext);
         btnSignUp = (Button)findViewById(R.id.btn_signup);

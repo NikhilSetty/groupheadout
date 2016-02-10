@@ -34,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         applicationContext=getApplicationContext();
 
+        this.setTitle("Login - Key+");
+
         //name = (EditText)findViewById(R.id.edittext_name);
         password = (EditText)findViewById(R.id.edittext_password);
         loginButton = (Button)findViewById(R.id.btn_login);

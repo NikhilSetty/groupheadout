@@ -51,7 +51,7 @@ public class VaultActivity extends AppCompatActivity {
             Point displaySize = new Point();
             this.getWindowManager().getDefaultDisplay().getRealSize(displaySize);
 
-            new EasyDialog(VaultActivity.this)
+            /*new EasyDialog(VaultActivity.this)
                     .setLayoutResourceId(R.layout.layout_tip_content_horizontal)
                     .setBackgroundColor(VaultActivity.this.getResources().getColor(R.color.background_color_black))
                     .setLocation(new int[]{displaySize.x - 200, getActionBarHeight() + getStatusBarHeight() + 200})
@@ -60,7 +60,7 @@ public class VaultActivity extends AppCompatActivity {
                     .setMatchParent(false)
                     .setMarginLeftAndRight(24, 24)
                     .setOutsideColor(R.color.primaryColor)
-                    .show();
+                    .show();*/
 
             mListView.setVisibility(View.GONE);
             mErrorLayout.setVisibility(View.VISIBLE);
