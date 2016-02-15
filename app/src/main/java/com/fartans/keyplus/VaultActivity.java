@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.fartans.keyplus.Model.Vault;
 import com.fartans.keyplus.db.DbHandler;
-import com.michael.easydialog.EasyDialog;
 
 import java.util.ArrayList;
 import java.util.List;

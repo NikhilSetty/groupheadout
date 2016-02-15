@@ -32,7 +32,7 @@
         </activity>
         <activity
             android:name="com.fartans.keyplus.LoginActivity"
-            android:label="@string/app_name_final" >
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.fartans.keyplus.VaultActivity"

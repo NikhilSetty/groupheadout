@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.fartans.keyplus.Model.Vault;
 import com.fartans.keyplus.db.DbHandler;
-import com.michael.easydialog.EasyDialog;
 
 public class AddVaultActivity extends AppCompatActivity {
     EditText editTextName;
@@ -87,31 +86,6 @@ public class AddVaultActivity extends AppCompatActivity {
         super.onResume();
 
     }
-
-    @Override
-    public void onWindowFocusChanged (boolean hasFocus) {
-        if(executeOnce) {
-            int[] location = new int[2];
-            checkBoxSetPassword.getLocationOnScreen(location);
-
-            location[0] += 20;
-
-            if (StaticHelper.IsFromSignUp) {
-                new EasyDialog(AddVaultActivity.this)
-                        .setLayoutResourceId(R.layout.layout_tip_content_key_horizontal)
-                        .setBackgroundColor(AddVaultActivity.this.getResources().getColor(R.color.background_color_black))
-                        .setLocation(location)
-                        .setGravity(EasyDialog.GRAVITY_TOP)
-                        .setTouchOutsideDismiss(true)
-                        .setMatchParent(false)
-                        .setMarginLeftAndRight(24, 24)
-                        .setOutsideColor(R.color.primaryColor)
-                        .show();
-            }
-            executeOnce = false;
-        }
-    }
-
 
     @Override
     protected void onStart(){
